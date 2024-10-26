@@ -3,7 +3,7 @@ import React from 'react'
 import Problem from '../../../components/Problem'
 import { getDefaultCodes, getProblem, getSubmission } from '../../../actions/getProblems';
 import { getServerSession } from 'next-auth';
-import { NEXT_AUTH_CONFIG } from '../../api/auth/[...nextauth]/route';
+import { NEXT_AUTH_CONFIG } from '@/lib/utils';
 
 export type codeType = {
   id:string,
