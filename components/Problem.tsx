@@ -14,11 +14,11 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LANGUAGES, LANGUAGES_VERSIONS, testCases } from "@/lib/problems";
 import { codeType } from "../app/problems/[slug]/page";
-import { createSubmission } from "../actions/createSubmission";
+import { createSubmission } from "@/actions/createSubmission";
 import { useSession } from "next-auth/react";
-import { saveSubmission } from "../actions/saveSubmission";
+import { saveSubmission } from "@/actions/saveSubmission";
 import { getUser } from "../actions/getUser";
-import { getSubmission } from "../actions/getProblems";
+import { getSubmission } from "@/actions/getProblems";
 
 function Problem({
   title,

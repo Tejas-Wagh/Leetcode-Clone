@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 // Function to check if provided password matches the hashed password
 export const verifyPassword = async (enteredPassword: string, storedHashedPassword: string): Promise<boolean> => {

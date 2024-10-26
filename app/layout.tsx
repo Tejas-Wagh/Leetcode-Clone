@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AuthProvider } from "../components/AuthProvider";
-import AppBar from "../components/AppBar";
+import { AuthProvider } from "@/components/AuthProvider";
+import AppBar from "@/components/AppBar";
 import { Toaster } from "@/components/ui/sonner";
 export const metadata: Metadata = {
   title: "AlgoHub",
