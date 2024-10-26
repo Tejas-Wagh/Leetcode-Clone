@@ -6,6 +6,7 @@ import prisma from "@/lib/db";
 
 import {z} from "zod";
 import { hashPassword, verifyPassword } from "@/lib/hashing";
+import { generateRandomId } from "@/lib/utils";
 
 const CredentialsType = z.object({
     email:z.string().email(),
@@ -39,6 +40,7 @@ export const NEXT_AUTH_CONFIG = {
                 const hashedPass = await hashPassword(params.data.password);
                 const newUser = await prisma.user.create({
                     data:{
+                        id:generateRandomId(10),
                         email:params.data.email,
                         password:hashedPass
                     }
