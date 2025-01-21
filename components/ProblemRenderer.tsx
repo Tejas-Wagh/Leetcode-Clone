@@ -7,6 +7,7 @@ import {
 } from "react-icons/io";
 import { LuClock } from "react-icons/lu";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 
 type Problem = {
@@ -42,7 +43,7 @@ function ProblemRenderer({ Name, Difficulty, Date, Submissions,slug }: Problem) 
 
   return (
     <TableRow>
-      <TableCell className="hover:underline cursor-pointer hover:text-cyan-600 text-md"><Link href={`/problems/${slug}`}>{Name}</Link></TableCell>
+      <TableCell className="hover:underline cursor-pointer hover:text-cyan-600 text-md"><Button variant={"ghost"} asChild><Link href={`/problems/${slug}`}>{Name}</Link></Button></TableCell>
       <TableCell className="">{Difficulty.charAt(0).toUpperCase() + Difficulty.slice(1).toLowerCase()}</TableCell>
       <TableCell>{Date}</TableCell>
       <TableCell className="flex items-center justify-center">{Submissions}</TableCell>

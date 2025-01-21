@@ -10,6 +10,7 @@ import { LANGUAGES_VERSIONS } from "@/lib/problems";
 
 export const SubmissionsTable = ({ submissions }: { submissions: any }) => {
   return (
+  <div className=" px-4 py-2 rounded-sm">
     <Table>
       <TableHeader className="">
         <TableRow className="">
@@ -34,5 +35,6 @@ export const SubmissionsTable = ({ submissions }: { submissions: any }) => {
         ))}
       </TableBody>
     </Table>
+    </div>
   );
 };

@@ -19,6 +19,7 @@ import { useSession } from "next-auth/react";
 import { saveSubmission } from "@/actions/saveSubmission";
 import { getUser } from "../actions/getUser";
 import { getSubmission } from "@/actions/getProblems";
+import {motion} from "framer-motion";
 
 function Problem({
   title,
@@ -99,7 +100,7 @@ function Problem({
       result.status
     );
 
-    const allsubmissions = await getSubmission(problemID);
+    const allsubmissions = (await getSubmission(problemID));
     //@ts-ignore
     setUpdatedSubmissions(allsubmissions);
   }
@@ -118,7 +119,22 @@ function Problem({
   }, [language]);
 
   return (
-    <div className="grid grid-cols-2 py-14 px-28 gap-10">
+    <motion.div initial={
+      {
+        opacity:0,
+        x:-100
+      }
+    }
+    animate={
+      {
+        opacity:1,
+        x:0
+      }
+    }
+    transition={{
+      duration:0.5
+    }}
+    className="grid grid-cols-2 py-14 px-28 gap-10">
       <Tab
         title={title}
         description={description}
@@ -172,7 +188,7 @@ function Problem({
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

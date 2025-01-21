@@ -1,9 +1,8 @@
-
-
+"use server";
 import axios from "axios";
 
 export async function createSubmission(code:string,language_id:number,testCase1:string,output1:string,testCase2:string,output2:string,testCase3:string,output3:string){
-    
+
     const options = {
         method: "POST",
         url: "https://judge0-ce.p.rapidapi.com/submissions/batch",
@@ -11,7 +10,7 @@ export async function createSubmission(code:string,language_id:number,testCase1:
           base64_encoded: "true",
         },
         headers: {
-          "x-rapidapi-key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
+          "x-rapidapi-key": process.env.RAPID_API_KEY,
           "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
           "Content-Type": "application/json",
         },
@@ -113,7 +112,7 @@ async function getBachedSubmission(
         fields: "*",
       },
       headers: {
-        "x-rapidapi-key":process.env.NEXT_PUBLIC_RAPID_API_KEY,
+        "x-rapidapi-key":process.env.RAPID_API_KEY,
         "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
       },
     };

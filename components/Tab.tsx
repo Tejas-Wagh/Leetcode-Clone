@@ -12,6 +12,7 @@ type ProblemParams = {
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { SubmissionsTable } from "./SubmissionsTable";
 
+
 export default function Tab({
   title,
   description,
@@ -60,7 +61,8 @@ export default function Tab({
           {/* {description} */}
           {description.trim()}
         </Markdown>
-        <div className={`${activeTab == "Problem" ? "hidden" : "visible"} max-h-96 overflow-y-auto overflow-x-hidden`}>
+        <div
+        className={`${activeTab == "Problem" ? "hidden" : "visible"} max-h-96 overflow-y-auto overflow-x-hidden`}>
           {submissions?.length > 0 ? 
           <SubmissionsTable submissions = {submissions}/> :
           <p className="text-center mt-20">No submissions yet.</p>

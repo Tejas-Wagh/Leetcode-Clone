@@ -13,32 +13,32 @@ import {
 
 import Link from "next/link";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { useRouter } from "next/navigation";
+import * as motion from "motion/react-client";
+
 function AppBar() {
   const session = useSession();
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push("/problems"); // Replace with your desired path
-  };
-
   return (
-    <div className=" flex justify-between py-6 px-10 border-b border-black border-opacity-30 dark:bg-black dark:border-gray-800 shadow-xl">
+    <motion.div
+      initial={{ y: -50, x: -50, opacity: 0 }}
+      animate={{ y: 0, x: 0, opacity: 1 }}
+      className=" flex justify-between sm:py-6 sm:px-10 py-4 px-6 border-b border-black border-opacity-30 dark:bg-black dark:border-gray-800 shadow-xl"
+    >
       <div className="text-2xl font-bold dark:text-white">
         <Link href={"/"}>AlgoHub</Link>
       </div>
-      <div className="flex flex-row  text-lg  ">
-        <Button variant={"link"} onClick={handleClick} className="-pr-1">
-          Explore Problems
+      <div className="flex flex-row sm:text-lg">
+        <Button variant={"link"} className="sm:-pr-1" asChild>
+          <Link href={"/problems"}>Explore Problems</Link>
         </Button>
-        <a
-          href="https://algo-hub-online-ide.vercel.app/"
-          target="_blank"
-          className="pr-2"
-        >
-          <Button variant={"link"}>Explore IDE</Button>
-        </a>
-
+        <Button variant={"link"} asChild>
+          <a
+            href="https://algo-hub-online-ide.vercel.app/"
+            target="_blank"
+            className="pr-3"
+          >
+            Explore IDE
+          </a>
+        </Button>
         {session.data?.user?.email ? (
           <HoverCard>
             <HoverCardTrigger asChild>
@@ -82,7 +82,7 @@ function AppBar() {
                       className="font-semibold"
                       onClick={() => signOut()}
                     >
-                      Log out{" "}
+                      Log Out{" "}
                       <div className="flex items-center justify-center pl-2 font-semibold">
                         <IoIosLogOut />
                       </div>
@@ -98,7 +98,7 @@ function AppBar() {
           </Button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
