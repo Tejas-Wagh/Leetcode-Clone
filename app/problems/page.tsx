@@ -1,9 +1,11 @@
 import React from 'react'
 import ProblemsList from '@/components/ProblemsList'
+import { getProblems } from '@/actions/getProblems';
 
-function page() {
+async function page() {
+  const problems = await getProblems();
   return (
-    <ProblemsList/>
+    <ProblemsList problems ={problems}/>
   );
 }
 

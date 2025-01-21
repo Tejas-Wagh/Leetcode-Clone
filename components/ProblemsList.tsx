@@ -11,8 +11,7 @@ import ProblemRenderer from "./ProblemRenderer";
 import { getProblems } from "../actions/getProblems";
 import {animate, motion} from "framer-motion"
 
-export default async function ProblemsList() {
-  const problems = await getProblems();
+export default  function ProblemsList({problems}:{problems:any}) {
 
   return (
     <motion.div  initial={{
@@ -48,7 +47,7 @@ export default async function ProblemsList() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {problems?.map((problem)=><ProblemRenderer
+            {problems?.map((problem:any)=><ProblemRenderer
             key={problem.id}
               Name={problem.title}
               Difficulty={problem.difficulty}
